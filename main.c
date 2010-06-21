@@ -703,6 +703,8 @@ process_rtp(struct cfg *cf, double dtime, int alarm_tick)
 		    rtp_packet_free(packet);
 		}
 	    }
+	} else {
+	    rtp_discard(sp->fds[ridx]);
 	}
     }
     /* Trim any deleted sessions at the end */

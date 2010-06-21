@@ -341,6 +341,14 @@ rtp_recv(int fd)
     return pkt;
 }
 
+void
+rtp_discard(int fd)
+{
+    char pkt;
+
+    recv(fd, &pkt, 1, 0);
+}
+
 void 
 rtp_packet_set_seq(struct rtp_packet *p, uint16_t seq)
 {
